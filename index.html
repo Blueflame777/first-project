@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Phishing Link Analyzer</title>
+    <link rel="stylesheet" href="design.css">
+</head>
+<body>
+    <div class="container">
+        <h1>🛡️ Threat Analyzer</h1>
+        <p>Paste a suspicious URL below to analyze its security profile.</p>
+        
+        <div class="input-group">
+            <input type="text" id="urlInput" placeholder="Enter URL (e.g., http://192.168.1.1/login)">
+            <button onclick="analyzeUrl()">Analyze</button>
+        </div>
+
+        <div id="results" class="hidden">
+            <h2>Analysis Results:</h2>
+            <ul id="reportList"></ul>
+        </div>
+    </div>
+    
+    <script src="j.js"></script>
+</body>
+</html>
