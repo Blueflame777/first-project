@@ -67,4 +67,5 @@ script.js - The brains of the operation. Contains the URLScanner class, mathemat
 
 This tool is designed for educational and heuristic analysis purposes only. Static lexical analysis is incredibly powerful for catching structural anomalies, but it cannot guarantee a website's safety. It does not actively ping servers or scan live page source code. Always exercise caution and use multiple layers of threat intelligence when investigating suspicious links.
 
-Engineered by SYSTEM_ADMIN
+Engineered by Blueflame777
+
