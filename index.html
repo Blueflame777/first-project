@@ -3,25 +3,62 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Phishing Link Analyzer</title>
+    <title>Advanced Threat Analyzer</title>
     <link rel="stylesheet" href="design.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 <body>
+    <canvas id="matrixCanvas"></canvas>
+
+    <button id="menuBtn" class="menu-btn" onclick="toggleMenu()">
+        <svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+    </button>
+
+    <div id="sideMenu" class="side-menu">
+        <button class="close-btn" onclick="toggleMenu()">×</button>
+        <div class="creator-info">
+            <div class="avatar-container">
+                <img src= alt="Creator" class="avatar">
+            </div>
+            <h2>SYSTEM_ADMIN</h2>
+            <p class="role">Lead Security Architect</p>
+            <div class="divider"></div>
+            <p class="bio">Welcome to the Advanced Threat Analyzer. This tool was engineered to perform deep lexical pattern recognition and protect systems from malicious phishing vectors using real-time heuristics.</p>
+            <div class="social-links">
+                <a href="https://github.com" target="_blank" class="tech-link">GitHub_Profile</a>   
+            </div>
+        </div>
+    </div>
+
     <div class="container">
-        <h1>🛡️ Threat Analyzer</h1>
-        <p>Paste a suspicious URL below to analyze its security profile.</p>
+        <div class="header-glow"></div>
+        <h1> Advanced Threat Analyzer</h1>
+        <p class="subtitle">Perform deep pattern recognition on suspicious URLs.</p>
         
         <div class="input-group">
-            <input type="text" id="urlInput" placeholder="Enter URL (e.g., http://192.168.1.1/login)">
-            <button onclick="analyzeUrl()">Analyze</button>
+            <input type="text" id="urlInput" placeholder="> Paste target URL here..." autocomplete="off">
+            <button class="scan-btn" onclick="triggerScan()">
+                <span>SCAN_TARGET</span>
+            </button>
+        </div>
+
+        <div id="loadingState" class="loading-container hidden">
+            <div class="spinner"></div>
+            <p class="loading-text">INITIALIZING DEEP SCAN...</p>
         </div>
 
         <div id="results" class="hidden">
-            <h2>Analysis Results:</h2>
+            <div class="score-card">
+                <div class="chart-container">
+                    <canvas id="riskChart"></canvas>
+                </div>
+                <h2>Threat Score: <span id="scoreValue">0</span><span class="max-score">/100</span></h2>
+            </div>
+            <h3 class="logs-title">Detection Logs_</h3>
             <ul id="reportList"></ul>
         </div>
     </div>
-    
+
     <script src="j.js"></script>
 </body>
 </html>
